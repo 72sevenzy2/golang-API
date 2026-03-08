@@ -7,7 +7,7 @@ import (
 	"github.com/72sevenzy2/golang-API/internal/service"
 )
 
-func greetHandler(g service.Greeter) http.HandlerFunc {
+func GreetHandler(g service.Greeter) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		// check if method is GET or not
 		if r.Method != http.MethodGet {
