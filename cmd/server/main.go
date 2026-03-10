@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"net/http"
-
 	"github.com/72sevenzy2/golang-API/internal/handler"
 	"github.com/72sevenzy2/golang-API/internal/health"
 	"github.com/72sevenzy2/golang-API/internal/service"
