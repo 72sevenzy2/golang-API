@@ -14,10 +14,10 @@ type GreetCounter struct {
 	mu    sync.Mutex
 }
 
-func (s *GreetCounter) Greet(name string) (string, error) {
+func (s *GreetCounter) Greet(name string) (string, int, error) {
 	var count int
 	if name == "" {
-		return "", fmt.Errorf("name cannot be empty")
+		return "", 0, fmt.Errorf("name cannot be empty")
 	}
 
 	s.mu.Lock()
@@ -25,5 +25,5 @@ func (s *GreetCounter) Greet(name string) (string, error) {
 	count = s.count
 	s.mu.Unlock()
 
-	return fmt.Sprintf("welcome back %s, greet number %d", name, count), nil
+	return fmt.Sprintf("welcome back %s, greet number %d", name, count), count, nil
 }
