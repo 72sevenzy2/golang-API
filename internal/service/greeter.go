@@ -6,7 +6,7 @@ import (
 )
 
 type Greeter interface {
-	Greet(name string) (string, error)
+	Greet(name string) (string, int, error)
 }
 
 type GreetCounter struct {
