@@ -25,5 +25,5 @@ func (s *GreetCounter) Greet(name string) (string, int, error) {
 	count = s.count
 	s.mu.Unlock()
 
-	return fmt.Sprintf("welcome back %s, greet number %d", name, count), count, nil
+	return fmt.Sprintf("welcome back %s", name), count, nil
 }
