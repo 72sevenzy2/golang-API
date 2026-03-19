@@ -5,20 +5,12 @@ import (
 	"encoding/json"
 	"github.com/72sevenzy2/golang-API/internal/service"
 	"github.com/72sevenzy2/golang-API/internal/response"
+	"github.com/72sevenzy2/golang-API/internal/configs"
 )
-
-type GreetResponse struct {
-	Message string `json:"message"`
-	Count int `json:"count"`
-}
-
-type GreetRequest struct {
-	Name string `json:"name"`
-}
 
 func GreetHandler(g service.Greeter) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		var req GreetRequest
+		var req configs.GreetRequest
 
 		err := json.NewDecoder(r.Body).Decode(&req)
 		if err != nil {
@@ -33,7 +25,7 @@ func GreetHandler(g service.Greeter) http.HandlerFunc {
 			return
 		}
 
-		resp := GreetResponse{
+		resp := configs.GreetResponse{
 			Message: msg,
 			Count: count,
 		}
